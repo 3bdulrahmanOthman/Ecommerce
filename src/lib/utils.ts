@@ -18,6 +18,15 @@ export const RenderIcon = ({
   return Icon ? React.createElement(Icon, props) : null;
 };
 
+export function toSentenceCase(str: string) {
+  return str
+    .replace(/_/g, " ")
+    .replace(/([A-Z])/g, " $1")
+    .toLowerCase()
+    .replace(/^\w/, (c) => c.toUpperCase())
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 export function slugify(str: string) {
   return str

@@ -69,6 +69,8 @@ import {
   CornerDownRight,
   LaptopMinimal,
   Link,
+  SortAsc,
+  SortDesc,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -79,6 +81,8 @@ export const Icons = {
   badge: BadgeCheck,
   boxes: Boxes,
   shapes: Shapes,
+  sortAsc: SortAsc,
+  sortDesc: SortDesc,
   shield: Shield,   
   tag: Tag,
   command: Command,

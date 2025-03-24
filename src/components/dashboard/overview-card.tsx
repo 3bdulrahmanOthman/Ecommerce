@@ -51,7 +51,7 @@ export function OverviewCard({
   );
 
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden p-0">
       <CardHeader className="p-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-sm font-medium flex items-center gap-2">

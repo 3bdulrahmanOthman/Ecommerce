@@ -21,7 +21,7 @@ export default function DashboardLayout({
           <DashboardSidebar />
           <main className="w-full h-full mx-auto">
             <DashboardHeader />
-            <ScrollArea className="h-[calc(100vh-4rem)] p-4 overflow-hidden">
+            <ScrollArea className="h-[calc(100vh-4rem)] px-4 overflow-hidden">
               {children}    
             </ScrollArea>
           </main>
