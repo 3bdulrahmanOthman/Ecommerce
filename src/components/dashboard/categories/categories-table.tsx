@@ -1,6 +1,5 @@
 "use client";
 import type { ColumnDef, Row } from "@tanstack/react-table";
-import { MoreHorizontal } from "lucide-react";
 import React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -123,7 +122,7 @@ const ActionsCell = ({
     <DropdownMenuTrigger asChild>
       <Button variant="ghost" className="h-8 w-8 p-0">
         <span className="sr-only">Open menu</span>
-        <MoreHorizontal className="h-4 w-4" />
+        <Icons.ellipsis className="h-4 w-4" />
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
@@ -229,15 +228,12 @@ export function CategoryTable({
             key={subcategory.id}
             className="bg-muted/30 hover:bg-muted/40"
           >
-            {/* Empty cell for the select checkbox column */}
             <TableCell />
 
-            {/* Indentation cell */}
-            <TableCell className="w-8 p-0">
+            <TableCell>
               <Icons.cornerDownRight className="size-4 text-muted-foreground" />
             </TableCell>
 
-            {/* Regular cells */}
             <TableCell className="font-medium">{subcategory.name}</TableCell>
             <TableCell>{subcategory.slug}</TableCell>
             <TableCell className="hidden md:table-cell">

@@ -208,6 +208,20 @@ export function ProductsTable() {
             <Icons.download className="mr-2" />
             Export
           </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() =>
+              exportTableToCSV(table, {
+                filename: "categories",
+                excludeColumns: ["select", "actions"],
+              })
+            }
+          >
+            <Icons.download className="mr-2" />
+            Export
+          </Button>
+          
         </DataTableToolbar>
       )}
     />

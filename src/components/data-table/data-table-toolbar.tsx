@@ -17,7 +17,8 @@ interface FilterOption {
   options: Options[];
 }
 
-interface DataTableToolbarProps<TData>  extends React.HTMLAttributes<HTMLDivElement>{
+interface DataTableToolbarProps<TData>
+  extends React.HTMLAttributes<HTMLDivElement> {
   table: Table<TData>;
   searchColumn?: string[]; // Supports multiple search columns
   filterOptions?: FilterOption[];
@@ -45,14 +46,16 @@ export function DataTableToolbar<TData>({
   };
 
   return (
-    <div role="toolbar"
-    aria-orientation="horizontal"
-    className={cn(
-      "flex w-full items-center justify-between gap-2 overflow-auto",
-      className,
-    )}
-    {...props}>
-      <div className="flex flex-1 items-center gap-2">
+    <div
+      role="toolbar"
+      aria-orientation="horizontal"
+      className={cn(
+        "flex w-full items-start justify-between gap-2 overflow-auto",
+        className
+      )}
+      {...props}
+    >
+      <div className="flex flex-1 flex-wrap items-center gap-2">
         {/* Search Input (for multiple columns) */}
         {searchColumn.some((col) => table.getColumn(col)) && (
           <Input
@@ -90,7 +93,7 @@ export function DataTableToolbar<TData>({
         )}
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center justify-end gap-2">
         {children}
         <DataTableViewOptions table={table} />
       </div>
