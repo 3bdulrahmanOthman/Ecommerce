@@ -13,7 +13,7 @@ import {
 import { DataTableColumnHeader } from "@/components/data-table";
 import { ProductProps } from "@/types";
 import { Icons } from "@/components/icons";
-import { StatusBadge } from "@/lib/utils";
+import { formatNumber, formatPrice, StatusBadge } from "@/lib/utils";
 import LongText from "@/components/long-text";
 
 export const ProductColumns: ColumnDef<ProductProps>[] = [
@@ -61,20 +61,14 @@ export const ProductColumns: ColumnDef<ProductProps>[] = [
     accessorKey: "price",
     header: ({ column }) => <DataTableColumnHeader column={column} title="Price" />,
     cell: ({ row }) => {
-      const price = Number.parseFloat(row.getValue("price"));
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(price);
-      return <div className="font-medium">{formatted}</div>;
+      return <div className="font-medium">{formatPrice(row.getValue("price"))}</div>;
     },
   },
   {
     accessorKey: "stock",
     header: ({ column }) => <DataTableColumnHeader column={column} title="Stock" />,
     cell: ({ row }) => {
-      const stock = row.getValue("stock") as number;
-      return <span className={stock === 0 ? "text-destructive" : "text-green-400"}>{stock}</span>;
+      return <span>{formatNumber(row.getValue("stock"))}</span>;
     },
   },
   {

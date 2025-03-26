@@ -8,13 +8,6 @@ type PaymentMethod =
   | "cash_on_delivery"
   | "bank_transfer";
 
-type ProductCategories =
-  | "shirts"
-  | "pants"
-  | "hoodie"
-  | "accessories"
-  | "shoes"
-  | "electronics";
 
 type StoredFile = string
 // {
@@ -125,7 +118,6 @@ interface UserProps {
 }
 
 interface CategoryProps {
-  find(arg0: (c: CategoryProps) => boolean): unknown;
   id: string;
   name: string;
   slug: string;
@@ -147,7 +139,6 @@ export type {
   UserRoles,
   UserProps,
   ProductProps,
-  ProductCategories,
   PaymentMethod,
   OrderProps,
   NavItem,
