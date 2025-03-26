@@ -1,28 +1,13 @@
 import { Icons } from "@/components/icons";
 
-type UserStatus = "active" | "inactive" | "invited" | "suspended";
 type UserRoles = "admin" | "moderator" | "cashier" | "manager";
 
-type OrderStatus =
-  | "pending"
-  | "processing"
-  | "shipped"
-  | "delivered"
-  | "canceled"
-  | "refunded";
 type PaymentMethod =
   | "credit_card"
   | "paypal"
   | "cash_on_delivery"
   | "bank_transfer";
 
-type ProductStatus =
-  | "active"
-  | "paused"
-  | "in_stock"
-  | "suspended"
-  | "pre_order"
-  | "discontinued";
 type ProductCategories =
   | "shirts"
   | "pants"
@@ -31,11 +16,12 @@ type ProductCategories =
   | "shoes"
   | "electronics";
 
-interface StoredFile {
-  id: string;
-  name: string;
-  url: string;
-}
+type StoredFile = string
+// {
+//   id: string;
+//   name: string;
+//   url: string;
+// }
 
 interface Options {
   label: string;
@@ -94,7 +80,7 @@ interface OrderProps {
   phone?: string;
   paymentMethod: PaymentMethod;
   totalAmount: number;
-  status: OrderStatus;
+  status: string;
   avatar: StoredFile | null;
   items: Array<
     Partial<ProductProps> & { quantity: number; variants?: VariantProps[] }
@@ -109,13 +95,12 @@ interface OrderProps {
 interface ProductProps {
   id: string;
   name: string;
-  description: string;
+  description?: string;
   price: number;
   sold?: number;
-  status: ProductStatus;
-  category: string; // category id
-  subcategory: string; // subcategory id
-  inventory: number;
+  stock: number;
+  status: string;
+  categoryId: string;
   images: StoredFile[] | null;
   variants?: VariantProps[];
   createdAt: Date;
@@ -129,7 +114,7 @@ interface UserProps {
   username: string;
   email: string;
   phoneNumber: string;
-  status: UserStatus;
+  status: string;
   role: UserRoles;
   spend?: number;
   avatar: string;
@@ -140,13 +125,14 @@ interface UserProps {
 }
 
 interface CategoryProps {
+  find(arg0: (c: CategoryProps) => boolean): unknown;
   id: string;
   name: string;
   slug: string;
   image: StoredFile | null;
-  description: string;
+  description?: string;
   createdAt: Date;
-  updatedAt: Date;
+  updatedAt?: Date;
 }
 
 interface SubcategoryProps extends CategoryProps {
@@ -158,13 +144,10 @@ export type {
   VariantProps,
   SubcategoryProps,
   CategoryProps,
-  UserStatus,
   UserRoles,
   UserProps,
   ProductProps,
   ProductCategories,
-  ProductStatus,
-  OrderStatus,
   PaymentMethod,
   OrderProps,
   NavItem,

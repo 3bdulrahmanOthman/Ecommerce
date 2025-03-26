@@ -90,7 +90,7 @@ export default function Dashboard() {
   return (
     <Shell variant={"sidebar"}>
       <PageHeader title="Dashboard" description="Welcome to your dashboard" />
-      <div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-4">
+      <div className="grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] gap-4">
         <OverviewCard
           icon="cash"
           label="Total Sales"

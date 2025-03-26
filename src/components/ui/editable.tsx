@@ -103,8 +103,10 @@ interface EditableRootProps
 
 const EditableRoot = React.forwardRef<HTMLDivElement, EditableRootProps>(
   (props, forwardedRef) => {
+    const generatedId = React.useId();
+    
     const {
-      id = React.useId(),
+      id = generatedId,
       defaultValue = "",
       value: valueProp,
       onValueChange: onValueChangeProp,

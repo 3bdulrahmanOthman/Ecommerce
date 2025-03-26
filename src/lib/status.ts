@@ -1,0 +1,33 @@
+export enum Status {
+  ACTIVE = "active",
+  PAUSED = "paused",
+  IN_STOCK = "in_stock",
+  SUSPENDED = "suspended",
+  PRE_ORDER = "pre_order",
+  DISCONTINUED = "discontinued",
+  PENDING = "pending",
+  PROCESSING = "processing",
+  SHIPPED = "shipped",
+  DELIVERED = "delivered",
+  CANCELED = "canceled",
+  REFUNDED = "refunded",
+  INACTIVE = "inactive",
+  INVITED = "invited",
+}
+
+export const statusStyles: Record<Status, string> = {
+  [Status.ACTIVE]: "bg-teal-100/30 text-teal-900 dark:text-teal-200 border-teal-200",
+  [Status.PAUSED]: "bg-yellow-200/40 text-yellow-900 dark:text-yellow-100 border-yellow-300",
+  [Status.IN_STOCK]: "bg-green-100/30 text-green-900 dark:text-green-200 border-green-200",
+  [Status.SUSPENDED]: "bg-destructive/10 dark:bg-destructive/50 text-destructive dark:text-primary border-destructive/10",
+  [Status.PRE_ORDER]: "bg-blue-200/40 text-blue-900 dark:text-blue-100 border-blue-300",
+  [Status.DISCONTINUED]: "bg-gray-300/40 text-gray-900 dark:text-gray-200 border-gray-300",
+  [Status.PENDING]: "bg-yellow-100/30 text-yellow-900 dark:text-yellow-200 border-yellow-200",
+  [Status.PROCESSING]: "bg-blue-100/30 text-blue-900 dark:text-blue-200 border-blue-200",
+  [Status.SHIPPED]: "bg-teal-100/30 text-teal-900 dark:text-teal-200 border-teal-200",
+  [Status.DELIVERED]: "bg-green-100/30 text-green-900 dark:text-green-200 border-green-200",
+  [Status.CANCELED]: "bg-red-100/30 text-red-900 dark:text-red-200 border-red-200",
+  [Status.REFUNDED]: "bg-gray-300/40 text-gray-900 dark:text-gray-200 border-gray-300",
+  [Status.INACTIVE]: "bg-neutral-300/40 border-neutral-300",
+  [Status.INVITED]: "bg-sky-200/40 text-sky-900 dark:text-sky-100 border-sky-300",
+};
