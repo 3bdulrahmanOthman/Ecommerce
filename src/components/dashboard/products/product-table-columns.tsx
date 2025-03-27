@@ -1,20 +1,11 @@
 "use client"
 import type { ColumnDef } from "@tanstack/react-table";
-import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { DataTableColumnHeader } from "@/components/data-table";
 import { ProductProps } from "@/types";
-import { Icons } from "@/components/icons";
 import { formatNumber, formatPrice, StatusBadge } from "@/lib/utils";
 import LongText from "@/components/long-text";
+import { ProductActions } from "./product-table-actions";
 
 export const ProductColumns: ColumnDef<ProductProps>[] = [
   {
@@ -83,31 +74,7 @@ export const ProductColumns: ColumnDef<ProductProps>[] = [
     id: "actions",
     cell: ({ row }) => {
       const product = row.original;
-
-      const handleCopyId = () => {
-        navigator.clipboard.writeText(product.id);
-      };
-
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="size-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <Icons.ellipsis className="size-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem onClick={handleCopyId}>Copy Product ID</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => console.log("Viewing product", product.id)}>View Product</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => console.log("Editing product", product.id)}>Edit Product</DropdownMenuItem>
-            <DropdownMenuItem className="text-red-600" onClick={() => console.log("Deleting product", product.id)}>
-              Delete Product
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
+      return <ProductActions product={product} />;
     },
   },
 ];

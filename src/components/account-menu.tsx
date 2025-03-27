@@ -76,7 +76,7 @@ const AccountMenu = ({ user, extraMenuItems }: AccountMenuProps) => {
                   key={item.key || item.label}
                   onClick={item.onClick}
                 >
-                  <RenderIcon icon={item.icon} className="mr-2" />
+                  {item.icon && <RenderIcon icon={item.icon} className="mr-2" />}
                   {item.path ? (
                     <Link href={item.path}>{item.label}</Link>
                   ) : (

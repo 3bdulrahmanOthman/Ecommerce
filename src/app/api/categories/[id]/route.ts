@@ -2,8 +2,12 @@ import { NextRequest } from "next/server";
 import { categories } from "../../utils/mockData";
 import { errorResponse, successResponse } from "../../utils/response";
 
-export async function GET(req: NextRequest, context: { params: { id: string } }) {
-  const { id } = context.params;
+export async function GET(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  const id = (await params).id;
+
   console.log("Fetching category for ID:", id);
 
   if (!id) {

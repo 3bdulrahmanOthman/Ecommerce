@@ -71,6 +71,7 @@ import {
   Link,
   SortAsc,
   SortDesc,
+  Clipboard,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -122,6 +123,7 @@ export const Icons = {
   media: Image,
   settings: Settings,
   billing: CreditCard,
+  clipboard: Clipboard,
   bell: Bell,
   add: Plus,
   warning: AlertTriangle,

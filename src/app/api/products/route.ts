@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     };
     
     products.push(newProduct);
-    return successResponse(newProduct, "Product created successfully");
+    return successResponse(newProduct, "Product created successfully", 201);
   } catch (error) {
     return errorResponse(error?.toString() || "Failed to create product", 500);
   }
